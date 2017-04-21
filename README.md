@@ -54,3 +54,11 @@ import { BrowserSupportedAnimationsModule } from 'ngx-no-animation-for-dinosaur'
 ### Demo
 
 try demo under demo/cliDemo
+
+### Acknowledgement
+
+Kudos to
+
++ This project is inspired by user2957238@StackOverflow answer
+
++ The build process is based on [angular-library-starter](https://github.com/robisim74/angular-library-starter) by @robisim74
