@@ -16,9 +16,10 @@
     "publish-npm": "npm publish",
     "build": "node build.js",
     "publish-npm:beta": "npm publish --tag=next",
-    "semantic-release": "semantic-release pre && npm run publish-npm && semantic-release post",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "sr": "npm run semantic-release",
-    "sr:beta": "semantic-release pre && npm run publish-npm:beta && semantic-release post"
+    "sr:beta": "semantic-release pre && npm run publish-npm:beta && semantic-release post",
+    "sr:setup": "semantic-release-cli setup"
   },
   "engines": {
     "node": ">= 4.2.1"
@@ -52,7 +53,6 @@
     "@angular/platform-server": "4.0.0",
     "@angular/platform-browser": "4.0.0",
     "@angular/animations": ">=4.0.0",
-
     "@types/node": "6.0.48",
     "commitizen": "2.9.6",
     "cz-conventional-changelog": "^1.2.0",
@@ -63,7 +63,7 @@
     "npm-run-all": "^3.1.2",
     "rimraf": "2.6.1",
     "rxjs": "^5.2.0",
-    "semantic-release": "6.3.2",
+    "semantic-release": "^6.3.2",
     "ts-node": "1.7.2",
     "typescript": "2.2.2",
     "codelyzer": "2.0.0",
@@ -86,5 +86,6 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "version": "0.0.0-development"
 }
