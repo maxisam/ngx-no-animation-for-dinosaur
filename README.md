@@ -47,7 +47,7 @@ import { BrowserSupportedAnimationsModule } from 'ngx-no-animation-for-dinosaur'
 ```
 
 ```
- providers: [BrowserSupportedAnimationsModule.forRoot()],
+ imports: [BrowserSupportedAnimationsModule.forRoot({disable: boolean})],
 ```
 
 
