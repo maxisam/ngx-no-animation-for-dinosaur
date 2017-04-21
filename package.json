@@ -4,7 +4,6 @@
   "main": "./dist/bundles/ngxNoAnimationForDinosaur.umd.min.js",
   "module": "./dist/index.js",
   "typings": "./dist/index.d.ts",
-  "version": "0.0.4",
   "author": {
     "name": "Sam Lin",
     "email": "maxisam@gmail.com"
