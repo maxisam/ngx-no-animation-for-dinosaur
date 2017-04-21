@@ -1,0 +1,91 @@
+{
+  "name": "ngx-no-animation-for-dinosaur",
+  "description": "disable angular animation for old browser",
+  "main": "./dist/bundles/ngxNoAnimationForDinosaur.umd.min.js",
+  "module": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "version": "0.0.4",
+  "author": {
+    "name": "Sam Lin",
+    "email": "maxisam@gmail.com"
+  },
+  "homepage": "https://github.com/maxisam/ngx-no-animation-for-dinosaur",
+  "scripts": {
+    "tslint": "tslint -c tslint.json 'src/**/*.ts'",
+    "commit": "git-cz",
+    "clean:dist": "rimraf dist compiled",
+    "publish-npm": "npm publish",
+    "build": "node build.js",
+    "publish-npm:beta": "npm publish --tag=next",
+    "semantic-release": "semantic-release pre && npm run publish-npm && semantic-release post",
+    "sr": "npm run semantic-release",
+    "sr:beta": "semantic-release pre && npm run publish-npm:beta && semantic-release post"
+  },
+  "engines": {
+    "node": ">= 4.2.1"
+  },
+  "license": "MIT",
+  "publishConfig": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxisam/ngx-no-animation-for-dinosaur"
+  },
+  "bugs": {
+    "url": "https://github.com/maxisam/ngx-no-animation-for-dinosaur/issues"
+  },
+  "keywords": [
+    "angular",
+    "copy"
+  ],
+  "dependencies": {},
+  "peerDependencies": {
+    "@angular/core": ">=4.0.0",
+    "@angular/animations": ">=4.0.0",
+    "@angular/platform-browser": ">=4.0.0",
+    "core-js": ">=2.4.1",
+    "rxjs": ">=5.0.2",
+    "zone.js": ">=0.7.2"
+  },
+  "devDependencies": {
+    "@angular/compiler": "4.0.0",
+    "@angular/compiler-cli": "4.0.0",
+    "@angular/core": "4.0.0",
+    "@angular/platform-server": "4.0.0",
+    "@angular/platform-browser": "4.0.0",
+    "@angular/animations": ">=4.0.0",
+
+    "@types/node": "6.0.48",
+    "commitizen": "2.9.6",
+    "cz-conventional-changelog": "^1.2.0",
+    "es6-promise": "4.1.0",
+    "es6-promise-loader": "^1.0.2",
+    "es6-shim": "^0.35.3",
+    "es7-reflect-metadata": "^1.6.0",
+    "npm-run-all": "^3.1.2",
+    "rimraf": "2.6.1",
+    "rxjs": "^5.2.0",
+    "semantic-release": "6.3.2",
+    "ts-node": "1.7.2",
+    "typescript": "2.2.2",
+    "codelyzer": "2.0.0",
+    "zone.js": "~0.8.5",
+    "rollup": "0.41.6",
+    "tslint": "4.5.1",
+    "shelljs": "0.7.7",
+    "chalk": "1.1.3",
+    "uglify-js": "2.8.16"
+  },
+  "files": [
+    "LICENSE",
+    "package.json",
+    "README.md",
+    "dist",
+    "src",
+    "index.ts"
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
