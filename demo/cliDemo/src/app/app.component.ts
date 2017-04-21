@@ -19,4 +19,5 @@ import { Component, trigger, state, style, transition, animate } from '@angular/
 })
 export class AppComponent {
   title = 'animation works if this flies in.';
+  userAgent = window.navigator.userAgent;
 }
