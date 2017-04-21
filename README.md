@@ -51,3 +51,6 @@ import { BrowserSupportedAnimationsModule } from 'ngx-no-animation-for-dinosaur'
 ```
 
 
+### Demo
+
+try demo under demo/cliDemo
