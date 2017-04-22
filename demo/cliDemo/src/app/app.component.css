@@ -2,3 +2,8 @@ h1 {
   width: 40rem;
   margin: 10rem auto;
 }
+
+.user-agent {
+  position: absolute;
+  top: 20rem;
+}
