@@ -3,7 +3,7 @@ export function isBrowserSupport(ua: string): boolean {
         return true;
     } else if (ua.indexOf('MSIE') !== -1) {
         return ua.indexOf('MSIE 10') !== -1; // filter out all IE but IE10
-    } else if (ua.indexOf('Edge') || ua.indexOf('Trident')) {
+    } else if (ua.indexOf('Edge') !== -1 || ua.indexOf('Trident') !== -1) {
         return true; // IE11 and Edge
     } else if (ua.indexOf('Firefox') !== -1) {
         const match = /((?!Gecko.+)Firefox|Gecko(?!.+Firefox))(?: |\/)([\d]+)/.exec(ua);
