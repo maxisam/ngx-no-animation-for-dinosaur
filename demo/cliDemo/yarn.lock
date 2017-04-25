@@ -3002,9 +3002,9 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-ngx-no-animation-for-dinosaur@0.1.0-beta2:
-  version "0.1.0-beta2"
-  resolved "https://registry.yarnpkg.com/ngx-no-animation-for-dinosaur/-/ngx-no-animation-for-dinosaur-0.1.0-beta2.tgz#ce73c29ebb20c554ab1a786e7a620624079ecd6c"
+ngx-no-animation-for-dinosaur@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/ngx-no-animation-for-dinosaur/-/ngx-no-animation-for-dinosaur-0.1.2.tgz#cea8f8729267e60f7c37c2610729bc30b13a8610"
 
 no-case@^2.2.0:
   version "2.3.1"
