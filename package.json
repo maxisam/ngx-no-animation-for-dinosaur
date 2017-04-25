@@ -59,7 +59,6 @@
     "@types/node": "6.0.48",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.5",
-    "@types/node": "6.0.48",
     "commitizen": "2.9.6",
     "cz-conventional-changelog": "^1.2.0",
     "npm-run-all": "^3.1.2",
