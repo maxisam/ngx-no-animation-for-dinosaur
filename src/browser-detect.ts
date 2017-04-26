@@ -1,4 +1,5 @@
 export function isBrowserSupport(ua: string): boolean {
+    // tslint:disable-next-line:no-string-literal
     if (!!window['chrome'] && !!window['chrome']['webstore']) {
         return true;
     } else if (ua.indexOf('MSIE') !== -1) {
@@ -11,7 +12,7 @@ export function isBrowserSupport(ua: string): boolean {
         return !!match[1] && !isNaN(ver) && ver >= 27; // Firefox 27+
     } else if (ua.indexOf('Safari') !== -1) {
         let match = /(?:iPod|iPhone|iPad).+Version\/(\d+\.\d+).*Safari/.exec(ua); // iOS safari 7.1+
-        let ver = match ? +match[1] : 0;
+        let ver = match ? +match[1] : NaN;
         if (!isNaN(ver)) { return ver >= 7.1; }
         match = /Version\/(\d+)\.\d+(?:\.\d+)?.*Safari/.exec(ua); // OS X Safari 9+
         ver = match ? +match[1] : 0;
