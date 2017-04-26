@@ -33,6 +33,9 @@
       true,
       "Directive"
     ],
+    "max-line-length": [
+      250
+    ],
     "import-destructuring-spacing": true,
     "templates-use-public": true,
     "no-access-missing-member": true,
