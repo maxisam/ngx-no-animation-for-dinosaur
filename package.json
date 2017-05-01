@@ -22,7 +22,7 @@
     "sr:setup": "semantic-release-cli setup"
   },
   "engines": {
-    "node": ">=6.9.0"
+    "node": ">=6.9.x"
   },
   "license": "MIT",
   "publishConfig": {},

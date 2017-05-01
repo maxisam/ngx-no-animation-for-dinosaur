@@ -9,7 +9,7 @@ branches:
 notifications:
   email: false
 node_js:
-  - '4'
+  - '6'
 before_install:
   - npm i -g npm@^4
 before_script:
