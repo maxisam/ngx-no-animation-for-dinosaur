@@ -1,4 +1,7 @@
-import { isBrowserSupport } from './browser-detect';
+/* tslint:disable:no-unused-variable */
+
+import { TestBed, async, inject } from '@angular/core/testing';
+import { BrowserDetectService } from './browser-detect.service';
 
 const chromeWindows10 = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36';
 const firefox27 = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0';
@@ -15,66 +18,82 @@ const safari8Ios = 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4 like Mac OS X) AppleW
 const safari10Ios = 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Version/10.0 Mobile/14D27 Safari/602.1';
 
 
-describe('test isBrowserSupport for chrome browser', () => {
-    it('chrome is supported', () => {
-        expect(isBrowserSupport(chromeWindows10)).toBeTruthy();
+describe('Service: BrowserDetect', () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [BrowserDetectService]
     });
-});
+  });
 
-describe('test isBrowserSupport for non-chrome browser', () => {
+  describe('test isBrowserSupport for chrome browser', () => {
+    it('chrome is supported', inject([BrowserDetectService], (service: BrowserDetectService) => {
+      expect(service.isBrowserSupport(chromeWindows10)).toBeTruthy();
+    }));
+  });
+
+  describe('test isBrowserSupport for non-chrome browser', () => {
+    // inject([BrowserDetectService], (service: BrowserDetectService) => {
+    let service;
     beforeAll(() => {
-        window['chrome'] = undefined;
+      window['chrome'] = undefined;
+      service = TestBed.get(BrowserDetectService);
     });
 
     // Firefox
 
     it('firefox >= 27 is supported', () => {
-        expect(isBrowserSupport(firefox27)).toBeTruthy();
+      expect(service.isBrowserSupport(firefox27)).toBeTruthy();
     });
 
     it('firefox < 27 is not supported', () => {
-        expect(isBrowserSupport(firefox26)).toBeFalsy();
+      expect(service.isBrowserSupport(firefox26)).toBeFalsy();
     });
 
     // MS IE
 
     it('MSIE 10 is supported', () => {
-        expect(isBrowserSupport(MSIE10)).toBeTruthy();
+      expect(service.isBrowserSupport(MSIE10)).toBeTruthy();
     });
 
     it('MSIE 11 is supported', () => {
-        expect(isBrowserSupport(MSIE11)).toBeTruthy();
+      expect(service.isBrowserSupport(MSIE11)).toBeTruthy();
     });
 
     it('EDGE is supported', () => {
-        expect(isBrowserSupport(EDGE)).toBeTruthy();
+      expect(service.isBrowserSupport(EDGE)).toBeTruthy();
     });
 
     // Safari on OSX
 
     it('Safari 8 on OSX is not supported', () => {
-        expect(isBrowserSupport(safari8Osx)).toBeFalsy();
+      expect(service.isBrowserSupport(safari8Osx)).toBeFalsy();
     });
 
     it('Safari 9 on OSX is supported', () => {
-        expect(isBrowserSupport(safari9Osx)).toBeTruthy();
+      expect(service.isBrowserSupport(safari9Osx)).toBeTruthy();
     });
 
     it('Safari 10 on OSX is supported', () => {
-        expect(isBrowserSupport(safari10Osx)).toBeTruthy();
+      expect(service.isBrowserSupport(safari10Osx)).toBeTruthy();
     });
 
     // Safari on ISO
 
     it('Safari 7 on IOS is NOT supported', () => {
-        expect(isBrowserSupport(safari7Ios)).toBeFalsy();
+      expect(service.isBrowserSupport(safari7Ios)).toBeFalsy();
     });
 
     it('Safari 8 on IOS is supported', () => {
-        expect(isBrowserSupport(safari8Ios)).toBeTruthy();
+      expect(service.isBrowserSupport(safari8Ios)).toBeTruthy();
     });
 
     it('Safari 10 on IOS is supported', () => {
-        expect(isBrowserSupport(safari10Ios)).toBeTruthy();
+      expect(service.isBrowserSupport(safari10Ios)).toBeTruthy();
     });
+  });
 });
+
+//  it('should ...', inject([BrowserDetectService], (service: BrowserDetectService) => {
+//     expect(service).toBeTruthy();
+//   }));
+
