@@ -3,7 +3,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AnimationDriver, ɵWebAnimationsDriver } from '@angular/animations/browser';
 import { IAnimationConfig, animationFactory } from './animation.factory';
 export * from './animation.factory';
-const CONFIG_TOKEN = new InjectionToken<IAnimationConfig>('config');
+import { BrowserDetectService } from "./browser-detect.service";
+export const CONFIG_TOKEN = new InjectionToken<IAnimationConfig>('config');
 @NgModule({
     imports: [BrowserAnimationsModule]
 })
@@ -12,8 +13,9 @@ export class BrowserSupportedAnimationsModule {
         return {
             ngModule: BrowserSupportedAnimationsModule,
             providers: [
+                BrowserDetectService,
                 { provide: CONFIG_TOKEN, useValue: config },
-                { provide: AnimationDriver, useFactory: animationFactory, deps: [CONFIG_TOKEN] }
+                { provide: AnimationDriver, useFactory: animationFactory, deps: [BrowserDetectService, CONFIG_TOKEN] }
             ]
         };
     }
