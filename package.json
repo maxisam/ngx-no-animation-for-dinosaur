@@ -12,6 +12,7 @@
   "scripts": {
     "tslint": "tslint -c tslint.json 'src/**/*.ts'",
     "commit": "git-cz",
+    "test": "karma start",
     "clean:dist": "rimraf dist compiled",
     "publish-npm": "npm publish",
     "build": "node build.js",
