@@ -1,6 +1,5 @@
 import { BrowserDetectService } from './browser-detect.service';
-import { AnimationDriver, ɵNoopAnimationDriver, ɵWebAnimationsDriver } from '@angular/animations/browser';
-// import { isBrowserSupport } from "./browser-detect";
+import { ɵNoopAnimationDriver, ɵWebAnimationsDriver } from '@angular/animations/browser';
 export interface IAnimationConfig {
     disable: boolean;
 }

@@ -1,18 +1,9 @@
+import { animationFactory, CONFIG_TOKEN, IAnimationConfig } from './';
 import { BrowserDetectService } from './browser-detect.service';
-import {
-    AnimationDriver,
-    ɵAnimationEngine,
-    ɵNoopAnimationDriver,
-    ɵNoopAnimationEngine,
-    ɵWebAnimationsDriver
-} from '@angular/animations/browser';
-import { BrowserSupportedAnimationsModule, CONFIG_TOKEN, IAnimationConfig, animationFactory } from './';
+import { AnimationDriver, ɵNoopAnimationDriver, ɵWebAnimationsDriver } from '@angular/animations/browser';
+import { animate, Component, state, style, transition, trigger } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { BrowserModule, DOCUMENT, By } from '@angular/platform-browser';
-import { Component, trigger, state, style, transition, animate } from '@angular/core';
-import { WebAnimationsDriver } from "@angular/animations/browser/src/render/web_animations/web_animations_driver";
-import { AnimationEngine } from "@angular/animations/browser/src/animation_engine";
 
 
 @Component({
