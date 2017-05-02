@@ -3,8 +3,8 @@ import { ɵNoopAnimationDriver, ɵWebAnimationsDriver } from '@angular/animation
 export interface IAnimationConfig {
     disable: boolean;
 }
-export function animationFactory(browserDetectService: BrowserDetectService, config?: IAnimationConfig): any {
-    const isSupported = browserDetectService.isBrowserSupport(window.navigator.userAgent);
+export function animationFactory(win, browserDetectService: BrowserDetectService, config?: IAnimationConfig): any {
+    const isSupported = browserDetectService.isBrowserSupport(win.navigator.userAgent);
     if (!isSupported || (config && config.disable)) {
         return new ɵNoopAnimationDriver();
     } else {

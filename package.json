@@ -1,5 +1,6 @@
 {
   "name": "ngx-no-animation-for-dinosaur",
+  "version": "0.0.0",
   "description": "disable angular animation for old browser",
   "main": "./dist/bundles/ngxNoAnimationForDinosaur.umd.min.js",
   "module": "./dist/index.js",
@@ -38,7 +39,9 @@
     "angular",
     "animation"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "ngx-window-token": "0.0.2"
+  },
   "peerDependencies": {
     "@angular/core": ">=4.0.0",
     "@angular/animations": ">=4.0.0",
@@ -100,6 +103,5 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "version": "0.0.0-development"
+  }
 }

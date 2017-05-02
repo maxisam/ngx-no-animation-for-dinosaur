@@ -2,6 +2,7 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { BrowserDetectService } from './browser-detect.service';
+import { WindowTokenModule, WINDOW } from "ngx-window-token";
 
 const chromeWindows10 = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36';
 const firefox27 = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0';
@@ -17,25 +18,29 @@ const safari7Ios = 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) Appl
 const safari8Ios = 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12H143 Safari/600.1.4';
 const safari10Ios = 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Version/10.0 Mobile/14D27 Safari/602.1';
 
-
 describe('Service: BrowserDetect', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [BrowserDetectService]
-    });
-  });
-
   describe('test isBrowserSupport for chrome browser', () => {
+    beforeEach(() => {
+      TestBed.configureTestingModule({
+        imports: [WindowTokenModule],
+        providers: [BrowserDetectService]
+      });
+    });
+
     it('chrome is supported', inject([BrowserDetectService], (service: BrowserDetectService) => {
       expect(service.isBrowserSupport(chromeWindows10)).toBeTruthy();
     }));
   });
 
   describe('test isBrowserSupport for non-chrome browser', () => {
-    // inject([BrowserDetectService], (service: BrowserDetectService) => {
     let service;
-    beforeAll(() => {
-      window['chrome'] = undefined;
+
+    beforeEach(() => {
+      TestBed.configureTestingModule({
+        providers: [
+          { provide: WINDOW, useValue: {} },
+          BrowserDetectService]
+      });
       service = TestBed.get(BrowserDetectService);
     });
 
@@ -92,8 +97,3 @@ describe('Service: BrowserDetect', () => {
     });
   });
 });
-
-//  it('should ...', inject([BrowserDetectService], (service: BrowserDetectService) => {
-//     expect(service).toBeTruthy();
-//   }));
-

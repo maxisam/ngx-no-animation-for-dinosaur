@@ -4,7 +4,7 @@ import { AnimationDriver, ɵNoopAnimationDriver, ɵWebAnimationsDriver } from '@
 import { animate, Component, state, style, transition, trigger } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { WindowTokenModule, WINDOW } from "ngx-window-token";
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -28,16 +28,16 @@ export class TestComponent {
     public show: boolean;
 }
 
-function getFixture(mockedService: BrowserDetectService, mockedConfig: IAnimationConfig) {
+function getFixture(mockedService, mockedConfig: IAnimationConfig) {
     return TestBed.configureTestingModule({
         declarations: [TestComponent],
         imports: [
-            BrowserAnimationsModule,
+            BrowserAnimationsModule, WindowTokenModule
         ],
         providers: [
             { provide: BrowserDetectService, useValue: mockedService },
             { provide: CONFIG_TOKEN, useValue: mockedConfig },
-            { provide: AnimationDriver, useFactory: animationFactory, deps: [BrowserDetectService, CONFIG_TOKEN] }
+            { provide: AnimationDriver, useFactory: animationFactory, deps: [WINDOW, BrowserDetectService, CONFIG_TOKEN] }
         ]
     }).createComponent(TestComponent);
 }
@@ -48,7 +48,7 @@ describe('factory: animationFactory', () => {
     let fixture: ComponentFixture<TestComponent>;
     let animationDriver: AnimationDriver;
     let browserDetectService: BrowserDetectService;
-    let browserDetectServiceDouble: BrowserDetectService;
+    let browserDetectServiceDouble: any;
     let button: HTMLButtonElement;
 
     describe('if browser is not supported', () => {
@@ -113,4 +113,3 @@ describe('factory: animationFactory', () => {
         });
     });
 });
-

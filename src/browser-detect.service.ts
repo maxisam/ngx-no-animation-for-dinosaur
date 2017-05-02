@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
+import { WINDOW } from "ngx-window-token";
 
 @Injectable()
 export class BrowserDetectService {
 
-    constructor() { }
+    constructor( @Inject(WINDOW) private window) { }
     public isBrowserSupport(ua: string): boolean {
         // tslint:disable-next-line:no-string-literal
-        if (!!window['chrome'] && !!window['chrome']['webstore']) {
+        if (!!this.window['chrome'] && !!this.window['chrome']['webstore']) {
             return true;
         } else if (ua.indexOf('MSIE') !== -1) {
             return ua.indexOf('MSIE 10') !== -1; // filter out all IE but IE10
