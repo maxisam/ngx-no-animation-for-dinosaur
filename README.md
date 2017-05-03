@@ -7,7 +7,8 @@
 
 # ngx-no-animation-for-dinosaur
 
-
+This library utilize Angular private API to disable animation. There is a chance that Angular might change it. If you have any doubt, please run test (`karma start`) to make sure it works as it should be. (An easy way is trying to set disable as true, and see if it works. You can put this in your unit test as well.)
+ 
 ## Dependencies
 
 + Angular >=4.0.0
