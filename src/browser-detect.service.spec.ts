@@ -4,7 +4,8 @@ import { TestBed, async, inject } from '@angular/core/testing';
 import { BrowserDetectService } from './browser-detect.service';
 import { WindowTokenModule, WINDOW } from "ngx-window-token";
 
-const chromeWindows10 = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36';
+const chrome57Windows10 = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36';
+const chrome54Windows10 = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2987.133 Safari/537.36';
 const firefox27 = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0';
 const firefox26 = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:26.0) Gecko/20100101 Firefox/26.0';
 const MSIE10 = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET4.0C; .NET4.0E)';
@@ -27,8 +28,11 @@ describe('Service: BrowserDetect', () => {
       });
     });
 
-    it('chrome is supported', inject([BrowserDetectService], (service: BrowserDetectService) => {
-      expect(service.isBrowserSupport(chromeWindows10)).toBeTruthy();
+    it('chrome 57 is supported', inject([BrowserDetectService], (service: BrowserDetectService) => {
+      expect(service.isBrowserSupport(chrome57Windows10)).toBeTruthy();
+    }));
+    it('chrome 54 is not supported', inject([BrowserDetectService], (service: BrowserDetectService) => {
+      expect(service.isBrowserSupport(chrome54Windows10)).toBeFalsy();
     }));
   });
 

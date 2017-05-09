@@ -8,7 +8,9 @@ export class BrowserDetectService {
     public isBrowserSupport(ua: string): boolean {
         // tslint:disable-next-line:no-string-literal
         if (!!this.window['chrome'] && !!this.window['chrome']['webstore']) {
-            return true;
+            const match = /(?:Chrome|Crios|Crmo)\/(\d+\.\d+?)/.exec(ua);
+            const ver = +match[1];
+            return !!match[0] && !isNaN(ver) && ver >= 55; // Chrome 55+
         } else if (ua.indexOf('MSIE') !== -1) {
             return ua.indexOf('MSIE 10') !== -1; // filter out all IE but IE10
         } else if (ua.indexOf('Edge') !== -1 || ua.indexOf('Trident') !== -1) {
